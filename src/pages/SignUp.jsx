@@ -68,7 +68,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className='m-3'>
+      <div className='m-4'>
         <header>
           <p className='font-bold text-2xl mb-2'>Sign Up to HomeGrid</p>
         </header>

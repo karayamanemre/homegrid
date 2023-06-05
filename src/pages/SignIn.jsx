@@ -51,7 +51,7 @@ const SignIn = () => {
 
   return (
     <>
-      <div className='m-3 xl:m-1'>
+      <div className='m-4'>
         <header>
           <p className='font-bold text-2xl mb-2'>Welcome Again!</p>
         </header>

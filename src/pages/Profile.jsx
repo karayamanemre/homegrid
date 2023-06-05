@@ -91,14 +91,9 @@ const Profile = () => {
             <input
               type='text'
               id='email'
-              className={
-                !changeDetails
-                  ? 'my-2 w-full font-bold rounded px-1'
-                  : 'my-2 w-full font-bold bg-[#b9b0b0] rounded px-1'
-              }
-              disabled={!changeDetails}
+              className='my-2 w-full font-bold rounded px-1'
               value={email}
-              onChange={onChange}
+              readOnly
             />
           </form>
         </div>

@@ -70,7 +70,7 @@ const SignUp = () => {
     <>
       <div className='m-3'>
         <header>
-          <p className='font-bold text-2xl mb-2'>Welcome Again!</p>
+          <p className='font-bold text-2xl mb-2'>Sign Up to HomeGrid</p>
         </header>
 
         <form onSubmit={onSubmit}>

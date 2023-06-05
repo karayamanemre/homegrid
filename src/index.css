@@ -17,3 +17,31 @@ html::-webkit-scrollbar {
 body {
   background-color: #ddd;
 }
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 16px;
+}
+
+.input-self {
+  padding-left: 30px;
+}
+
+.show-icon {
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  .input-icon {
+    left: 5px;
+  }
+}

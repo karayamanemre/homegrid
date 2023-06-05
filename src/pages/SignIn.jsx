@@ -8,6 +8,7 @@ import {
   MdPerson,
   MdLock,
 } from 'react-icons/md';
+import OAuth from '../components/OAuth';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -65,7 +66,7 @@ const SignIn = () => {
               id='email'
               value={email}
               onChange={onChange}
-              className='input-self shadow mb-12 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
+              className='input-self shadow mb-8 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
             />
           </div>
           <div className='input-container'>
@@ -76,7 +77,7 @@ const SignIn = () => {
               id='password'
               value={password}
               onChange={onChange}
-              className='input-self shadow mb-12 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
+              className='input-self shadow mb-4 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
             />
             <MdVisibility
               className='show-icon cursor-pointer'
@@ -91,7 +92,7 @@ const SignIn = () => {
             Forgot Password?
           </Link>
 
-          <div className='mt-12 flex justify-between items-center rounded bg-white pl-2 inherit xl:justify-start'>
+          <div className='mt-6 flex justify-between items-center rounded bg-white pl-2 inherit xl:justify-start'>
             <p className='text-xl'>Sign In</p>
             <button className='flex justify-center items-center w-12 h-12 bg-slate-100 xl:ml-3'>
               <MdArrowCircleRight
@@ -104,6 +105,8 @@ const SignIn = () => {
             </button>
           </div>
         </form>
+
+        <OAuth />
 
         <Link to='/sign-up' className='flex flex-col items-center mt-12'>
           <p className='text-md'>Don't have an account?</p>

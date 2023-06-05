@@ -15,6 +15,7 @@ import {
   MdLock,
   MdBadge,
 } from 'react-icons/md';
+import OAuth from '../components/OAuth';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,7 +83,7 @@ const SignUp = () => {
               id='name'
               value={name}
               onChange={onChange}
-              className='input-self shadow mb-12 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
+              className='input-self shadow mb-8 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
             />
           </div>
           <div className='input-container'>
@@ -93,7 +94,7 @@ const SignUp = () => {
               id='email'
               value={email}
               onChange={onChange}
-              className='input-self shadow mb-12 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
+              className='input-self shadow mb-8 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
             />
           </div>
           <div className='input-container'>
@@ -104,20 +105,13 @@ const SignUp = () => {
               id='password'
               value={password}
               onChange={onChange}
-              className='input-self shadow mb-12 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
+              className='input-self shadow border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
             />
             <MdVisibility
               className='show-icon cursor-pointer'
               onClick={() => setShowPassword((prevState) => !prevState)}
             />
           </div>
-
-          <Link
-            to='/forgot-password'
-            className='flex flex-col items-end pr-1 text-[#e47d07]'
-          >
-            Forgot Password?
-          </Link>
 
           <div className='mt-12 flex justify-between items-center rounded bg-white pl-2 inherit xl:justify-start'>
             <p className='text-xl'>Sign Up</p>
@@ -132,6 +126,8 @@ const SignUp = () => {
             </button>
           </div>
         </form>
+
+        <OAuth />
 
         <Link to='/sign-in' className='flex flex-col items-center mt-12'>
           <p className='text-md'>Already have an account?</p>

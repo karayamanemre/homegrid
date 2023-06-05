@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
 import {
   MdArrowCircleRight,
   MdVisibility,
@@ -26,6 +28,27 @@ const SignIn = () => {
     }));
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const auth = getAuth();
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+
+      if (userCredential.user) {
+        navigate('/');
+        toast.success('Signed in successfully');
+      }
+    } catch (error) {
+      toast.error('Wrong email or password');
+    }
+  };
+
   return (
     <>
       <div className='m-3 xl:m-1'>
@@ -33,7 +56,7 @@ const SignIn = () => {
           <p className='font-bold text-2xl mb-2'>Welcome Again!</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='input-container'>
             <MdPerson className='input-icon' />
             <input

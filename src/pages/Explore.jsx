@@ -6,8 +6,8 @@ import sellCategoryImage from '../assets/sellCategoryImage.jpg';
 const Explore = () => {
   return (
     <div className='m-4 mb-10'>
-      <header>
-        <p className='text-2xl font-bold mb-2'>Explore</p>
+      <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
+        <p className='text-2xl font-bold'>Explore</p>
       </header>
       <main>
         <p className='font-bold mt-4 mb-2'>Categories</p>
@@ -20,7 +20,7 @@ const Explore = () => {
             />
             <p className='font-bold text-left mt-1'>For Rent</p>
           </Link>
-          <Link className='w-[48%]' to='/category/sell'>
+          <Link className='w-[48%]' to='/category/sale'>
             <img
               className='min-h-[115px] h-[15vh] shadow w-full rounded-xl object-cover my-0 mx-auto'
               src={sellCategoryImage}

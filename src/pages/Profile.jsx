@@ -4,6 +4,7 @@ import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { MdLogout, MdEdit, MdCheck } from 'react-icons/md';
 
 const Profile = () => {
   const auth = getAuth();
@@ -52,10 +53,11 @@ const Profile = () => {
       <header className='flex justify-between items-center mb-4'>
         <p className='text-2xl font-bold'>My Profile</p>
         <button
-          className='cursor-pointer bg-[#119aa4] text-white rounded-xl py-1 px-3'
+          className='cursor-pointer bg-[#119aa4] text-white rounded-xl py-1 px-3 flex items-center'
           type='button'
           onClick={onLogout}
         >
+          <MdLogout className='inline-block mr-1' />
           Logout
         </button>
       </header>
@@ -64,13 +66,21 @@ const Profile = () => {
         <div className='flex justify-between max-w-[500px]'>
           <p className='font-bold mb-2'>Personal Information</p>
           <p
-            className='cursor-pointer font-bold text-[#119aa4]'
+            className='cursor-pointer font-bold text-[#119aa4] flex items-center justify-center mb-2'
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
             }}
           >
-            {changeDetails ? 'done' : 'edit'}
+            {changeDetails ? (
+              <>
+                <MdCheck /> <span>done</span>{' '}
+              </>
+            ) : (
+              <>
+                <MdEdit /> <span>edit</span>{' '}
+              </>
+            )}
           </p>
         </div>
 
@@ -82,7 +92,7 @@ const Profile = () => {
               className={
                 !changeDetails
                   ? 'my-2 w-full font-bold rounded px-1'
-                  : 'my-2 w-full font-bold bg-[#b9b0b0] rounded px-1'
+                  : 'my-2 w-full font-bold bg-[#d1f3f6] rounded px-1'
               }
               disabled={!changeDetails}
               value={name}
@@ -91,7 +101,7 @@ const Profile = () => {
             <input
               type='text'
               id='email'
-              className='my-2 w-full font-bold rounded px-1'
+              className='my-2 w-full font-bold rounded px-1 outline-none'
               value={email}
               readOnly
             />

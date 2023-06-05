@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { db } from '../firebase.config';
+import {
   MdArrowCircleRight,
   MdVisibility,
   MdPerson,
@@ -28,6 +34,27 @@ const SignUp = () => {
     }));
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+
+      const user = userCredential.user;
+
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+
+      navigate('/');
+    } catch (error) {}
+  };
+
   return (
     <>
       <div className='m-3'>
@@ -35,7 +62,7 @@ const SignUp = () => {
           <p className='font-bold text-2xl mb-2'>Welcome Again!</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='input-container'>
             <MdBadge className='input-icon' />
             <input

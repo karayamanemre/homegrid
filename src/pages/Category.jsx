@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   collection,
   getDocs,
@@ -13,8 +13,10 @@ import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import ListingItem from '../components/ListingItem';
+import { MdOutlineArrowBack } from 'react-icons/md';
 
 const Category = () => {
+  const navigate = useNavigate();
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -60,6 +62,9 @@ const Category = () => {
             ? 'Places For Rent'
             : 'Places For Sale'}
         </p>
+        <button type='button' onClick={(e) => navigate('/')}>
+          <MdOutlineArrowBack className='text-[#a75b05]' size={30} />
+        </button>
       </header>
       {loading ? (
         <Spinner />

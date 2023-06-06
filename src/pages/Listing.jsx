@@ -88,7 +88,7 @@ const Listing = () => {
 
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
-            to={`/contact/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
+            to={`/contact/${listing.userRef}?listingName=${listing.name}`}
             className='bg-[#2bb908] text-white rounded-lg p-2 mt-2'
           >
             Contact Owner

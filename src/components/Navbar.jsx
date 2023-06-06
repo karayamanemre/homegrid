@@ -49,7 +49,7 @@ const Navbar = () => {
                   location.pathname === '/offers' ? 'underline' : 'none',
               }}
             >
-              Offer
+              Offers
             </p>
           </li>
           <li

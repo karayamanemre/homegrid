@@ -6,9 +6,6 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Rubik', 'noto-sans-sinhala', sans-serif;
 }
 
 html::-webkit-scrollbar {
@@ -16,7 +13,21 @@ html::-webkit-scrollbar {
 }
 
 body {
-  background-color: #ddd;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ddddd8;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: #000000;
+}
+
+button {
+  outline: none;
+  border: none;
 }
 
 .input-container {
@@ -45,4 +56,14 @@ body {
   .input-icon {
     left: 5px;
   }
+}
+
+.formInputFile::-webkit-file-upload-button {
+  background-color: rgb(55 65 81);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
 }

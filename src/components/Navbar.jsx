@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <footer className='fixed left-0 bottom-0 right-0 h-[85px] bg-white z-30 flex justify-center items-center'>
-      <nav className='w-full mt-1 overflow-y-hidden'>
+      <nav className='w-full overflow-y-hidden'>
         <ul className='m-0 p-0 flex justify-evenly items-center'>
           <li
             className='flex flex-col items-center cursor-pointer'

@@ -149,15 +149,13 @@ const CreateListing = () => {
       });
     };
 
-    const imgUrls = await Promise.all(
+    const imageUrls = await Promise.all(
       [...images].map((image) => storeImage(image)),
     ).catch((error) => {
       setLoading(false);
       toast.error('Images not uploaded: ' + error.message);
       return [];
     });
-
-    console.log(imgUrls);
 
     setLoading(false);
   };

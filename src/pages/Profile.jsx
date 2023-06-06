@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { MdLogout, MdEdit, MdCheck } from 'react-icons/md';
+import {
+  MdLogout,
+  MdEdit,
+  MdCheck,
+  MdArrowCircleRight,
+  MdHomeFilled,
+} from 'react-icons/md';
 
 const Profile = () => {
   const auth = getAuth();
@@ -107,6 +113,14 @@ const Profile = () => {
             />
           </form>
         </div>
+        <Link
+          to='/create-listing'
+          className='bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow'
+        >
+          <MdHomeFilled className='text-[#119aa4]' size={20} />
+          <p className='text-sm font-semibold'>Sell or rent your home</p>
+          <MdArrowCircleRight className='text-[#119aa4]' size={20} />
+        </Link>
       </main>
     </div>
   );

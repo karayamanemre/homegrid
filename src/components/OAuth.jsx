@@ -36,7 +36,7 @@ const OAuth = () => {
   };
 
   return (
-    <div className='mt-8 flex flex-col items-center'>
+    <div className='mt-4 flex flex-col items-center'>
       <p>
         Sign {location.pathname === '/sign-up' ? 'up ' : 'in '}
         with

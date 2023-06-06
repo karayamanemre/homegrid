@@ -51,7 +51,7 @@ const Profile = () => {
   return (
     <div className='m-4 mb-10'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
-        <p className='text-2xl font-bold'>My Profile</p>
+        <p className='text-2xl font-semibold'>My Profile</p>
         <button
           className='cursor-pointer bg-[#119aa4] text-white rounded-xl py-1 px-3 flex items-center'
           type='button'
@@ -64,9 +64,9 @@ const Profile = () => {
 
       <main>
         <div className='flex shadow justify-between items-center max-w-[400px] p-2 bg-white rounded-xl mb-4'>
-          <p className='font-bold'>Personal Information</p>
+          <p>Personal Information</p>
           <p
-            className='cursor-pointer font-bold text-[#119aa4] flex items-center justify-center'
+            className='cursor-pointer font-medium text-[#119aa4] flex items-center justify-center'
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
@@ -91,8 +91,8 @@ const Profile = () => {
               id='name'
               className={
                 !changeDetails
-                  ? 'my-2 w-full font-bold px-1 border-b-2 border-[#d1f3f6] outline-none'
-                  : 'my-2 w-full font-bold border-b-2 border-[#d1f3f6] bg-[#d1f3f6] rounded px-1 outline-none focus-visible:ring-2 focus-visible:ring-[#119aa4]'
+                  ? 'my-2 w-full font-medium px-1 border-b-2 border-[#d1f3f6] outline-none'
+                  : 'my-2 w-full font-medium border-b-2 border-[#d1f3f6] bg-[#d1f3f6] rounded px-1 outline-none focus-visible:ring-2 focus-visible:ring-[#119aa4]'
               }
               disabled={!changeDetails}
               value={name}
@@ -101,7 +101,7 @@ const Profile = () => {
             <input
               type='text'
               id='email'
-              className='my-2 w-full font-bold rounded px-1 outline-none'
+              className='my-2 w-full font-medium rounded px-1 outline-none'
               value={email}
               readOnly
             />

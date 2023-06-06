@@ -12,11 +12,11 @@ const ListingItem = ({ listing, id, onDelete }) => {
           className='w-[30%] h-[100px] rounded-3xl object-cover lg:w-[20%] lg:h-[200px]'
         />
         <div className='w-[65%] lg:[80%]'>
-          <p className='font-bold text-xs opacity-80 mb-0'>
+          <p className='font-medium text-xs opacity-70 mb-0'>
             {listing.location}
           </p>
-          <p className='font-bold'>{listing.name}</p>
-          <p className='mb-0 font-bold text-[#a75b05] flex items-center'>
+          <p className='font-semibold'>{listing.name}</p>
+          <p className='mb-0 font-semibold text-[#a75b05] flex items-center'>
             $
             {listing.offer
               ? listing.discountedPrice

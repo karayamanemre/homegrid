@@ -7,10 +7,12 @@ const Explore = () => {
   return (
     <div className='m-4 mb-10'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
-        <p className='text-2xl font-bold'>Explore</p>
+        <p className='text-2xl font-semibold'>Explore</p>
       </header>
       <main>
-        <p className='font-bold mt-4 mb-2'>Categories</p>
+        <div className='flex shadow justify-between items-center max-w-[400px] p-2 bg-white rounded-xl mb-4'>
+          <p>Categories</p>
+        </div>
         <div className='flex justify-between'>
           <Link className='w-[48%]' to='/category/rent'>
             <img

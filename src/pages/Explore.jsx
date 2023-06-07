@@ -10,7 +10,7 @@ const Explore = () => {
         <p className='text-2xl font-semibold'>Explore</p>
       </header>
       <main>
-        <div className='flex shadow justify-between items-center max-w-[400px] p-2 bg-white rounded-xl mb-4'>
+        <div className='flex shadow justify-between items-center p-2 bg-white rounded-xl mb-4'>
           <p>Categories</p>
         </div>
         <div className='flex justify-between'>

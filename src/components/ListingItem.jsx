@@ -16,7 +16,7 @@ const ListingItem = ({ listing, id, onDelete }) => {
             {listing.location}
           </p>
           <p className='font-semibold'>{listing.name}</p>
-          <p className='mb-0 font-semibold text-[#a75b05] flex items-center'>
+          <p className='mb-0 font-semibold text-[#2a42cb] flex items-center'>
             $
             {listing.offer
               ? listing.discountedPrice
@@ -28,13 +28,13 @@ const ListingItem = ({ listing, id, onDelete }) => {
             {listing.type === 'rent' && ' /Month'}
           </p>
           <div className='flex justify-between max-w-[275px]'>
-            <BiBed className='text-[#a75b05]' />
+            <BiBed className='text-[#2a42cb]' />
             <p className='text-xs'>
               {listing.bedrooms > 1
                 ? `${listing.bedrooms} Bedrooms`
                 : ' 1 Bedroom'}
             </p>
-            <BiBath className='text-[#a75b05]' />
+            <BiBath className='text-[#2a42cb]' />
             <p className='text-xs'>
               {listing.bathrooms > 1
                 ? `${listing.bathrooms} Bathrooms`

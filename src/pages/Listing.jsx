@@ -4,7 +4,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { db } from '../firebase.config';
 import Spinner from '../components/Spinner';
-import { MdShare } from 'react-icons/md';
+import { MdShare, MdMail, MdOutlineArrowCircleRight } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 const Listing = () => {
@@ -35,40 +35,47 @@ const Listing = () => {
 
   return (
     <main>
-      <div
-        onClick={() => {
-          navigator.clipboard.writeText(window.location.href);
-          setShareLinkCopied(true);
-          toast.info('Link copied to clipboard');
-          setTimeout(() => {
-            setShareLinkCopied(false);
-          }, 2000);
-        }}
-        className='cursor-pointer fixed top-[3%] right-[5%] z-2 bg-white rounded-full flex justify-center items-center p-2 text-[#a75b05]'
-      >
-        <MdShare size={28} />
-      </div>
-
-      <div className='m-1 mb-20'>
-        <p className='font-semibold text-lg'>
-          {listing.name} - $
-          {listing.offer
-            ? listing.discountedPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-            : listing.regularPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        </p>
-        <p className='font-semibold opacity-70 mb-1'>{listing.location}</p>
-        <p className='p-1 bg-gray-700 text-white rounded-lg inline font-semibold mr-1'>
-          For {listing.type === 'rent' ? 'Rent' : 'Sale'}
-        </p>
-        {listing.offer && (
-          <p className='p-1 bg-green-600 text-white rounded-lg text-sm inline'>
-            ${listing.regularPrice - listing.discountedPrice} discount
+      <div className='m-4 mb-20'>
+        <header className='flex shadow justify-between items-center mb-2 bg-white p-2 rounded-xl'>
+          <p className='font-semibold text-xl'>
+            {listing.name} - $
+            {listing.offer
+              ? listing.discountedPrice
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              : listing.regularPrice
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
           </p>
-        )}
+          <div
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              setShareLinkCopied(true);
+              toast.info('Link copied to clipboard');
+              setTimeout(() => {
+                setShareLinkCopied(false);
+              }, 2000);
+            }}
+            className='cursor-pointer items-center  text-[#2a93cb]'
+          >
+            <MdShare size={28} />
+          </div>
+        </header>
+        <p className='font-semibold opacity-70 mb-1'>{listing.location}</p>
+        <div className='flex'>
+          <p className='p-1 px-2 bg-[#2a93cb] text-white rounded-lg inline font-semibold mr-1 shadow'>
+            For {listing.type === 'rent' ? 'Rent' : 'Sale'}
+          </p>
+          {listing.offer && (
+            <p className='p-1 px-2 bg-[#2a42cb] text-white rounded-lg inline shadow ml-2 animate-pulse'>
+              $
+              {(listing.regularPrice - listing.discountedPrice)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
+              discount
+            </p>
+          )}
+        </div>
 
         <ul className='p-0 list-none'>
           <li className='m-1 font-medium opacity-70'>
@@ -89,9 +96,11 @@ const Listing = () => {
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
             to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-            className='bg-[#2bb908] text-white rounded-lg p-2 mt-2'
+            className='w-60 bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
           >
+            <MdMail className='text-[#2a42cb]' size={24} />
             Contact Owner
+            <MdOutlineArrowCircleRight className='text-[#2a42cb]' size={24} />
           </Link>
         )}
       </div>

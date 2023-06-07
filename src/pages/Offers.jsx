@@ -59,7 +59,7 @@ const Offers = () => {
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>Offers</p>
         <button type='button' onClick={(e) => navigate('/')}>
-          <MdOutlineArrowBack className='text-[#a75b05]' size={30} />
+          <MdOutlineArrowBack className='text-[#2a93cb]' size={30} />
         </button>
       </header>
       {loading ? (

@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import { v4 as uuidv4 } from 'uuid';
+import { MdCreate, MdOutlineArrowCircleRight } from 'react-icons/md';
 
 const CreateListing = () => {
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
@@ -220,7 +221,7 @@ const CreateListing = () => {
               type='button'
               className={
                 type === 'sale'
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               id='type'
@@ -233,7 +234,7 @@ const CreateListing = () => {
               type='button'
               className={
                 type === 'rent'
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               id='type'
@@ -289,7 +290,7 @@ const CreateListing = () => {
             <button
               className={
                 parking
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -302,7 +303,7 @@ const CreateListing = () => {
             <button
               className={
                 !parking && parking !== null
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -319,7 +320,7 @@ const CreateListing = () => {
             <button
               className={
                 furnished
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -332,7 +333,7 @@ const CreateListing = () => {
             <button
               className={
                 !furnished && furnished !== null
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -386,7 +387,7 @@ const CreateListing = () => {
             <button
               className={
                 offer
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -399,7 +400,7 @@ const CreateListing = () => {
             <button
               className={
                 !offer && offer !== null
-                  ? 'bg-gray-700 text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
                   : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
@@ -463,9 +464,11 @@ const CreateListing = () => {
 
           <button
             type='submit'
-            className='cursor-pointer bg-gray-600 rounded-full px-8 py-3 text-white font-semibold text-lg w-4/5 mx-auto my-0 flex items-center justify-center mt-10'
+            className='w-60 bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
           >
-            Create Listing
+            <MdCreate className='text-[#2a42cb]' size={24} />
+            <p className='text-lg font-semibold'>Create Listing</p>
+            <MdOutlineArrowCircleRight className='text-[#2a42cb]' size={24} />
           </button>
         </form>
       </main>

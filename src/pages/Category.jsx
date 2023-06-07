@@ -63,7 +63,7 @@ const Category = () => {
             : 'Places For Sale'}
         </p>
         <button type='button' onClick={(e) => navigate('/')}>
-          <MdOutlineArrowBack className='text-[#a75b05]' size={30} />
+          <MdOutlineArrowBack className='text-[#2a93cb]' size={30} />
         </button>
       </header>
       {loading ? (

@@ -59,7 +59,7 @@ button {
 }
 
 .formInputFile::-webkit-file-upload-button {
-  background-color: rgb(55 65 81);
+  background-color: #2a42cb;
   border: none;
   color: #ffffff;
   font-weight: 600;

@@ -18,7 +18,7 @@ const Navbar = () => {
               style={{
                 width: '35px',
                 height: '35px',
-                color: location.pathname === '/' ? '#e47d07' : '#000',
+                color: location.pathname === '/' ? '#2a93cb' : '#000',
               }}
             />
             <p
@@ -39,7 +39,7 @@ const Navbar = () => {
               style={{
                 width: '35px',
                 height: '35px',
-                color: location.pathname === '/offers' ? '#ABBF24' : '#000',
+                color: location.pathname === '/offers' ? '#2a93cb' : '#000',
               }}
             />
             <p
@@ -60,7 +60,7 @@ const Navbar = () => {
               style={{
                 width: '35px',
                 height: '35px',
-                color: location.pathname === '/profile' ? '#119aa4' : '#000',
+                color: location.pathname === '/profile' ? '#2a93cb' : '#000',
               }}
             />
             <p

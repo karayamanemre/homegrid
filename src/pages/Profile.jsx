@@ -58,13 +58,8 @@ const Profile = () => {
     <div className='m-4 mb-10'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>My Profile</p>
-        <button
-          className='cursor-pointer bg-[#2a93cb] text-white rounded-xl py-1 px-3 flex items-center'
-          type='button'
-          onClick={onLogout}
-        >
-          <MdLogout className='mr-1' />
-          Logout
+        <button type='button' onClick={onLogout}>
+          <MdLogout className='text-[#2a93cb]' size={30} />
         </button>
       </header>
 

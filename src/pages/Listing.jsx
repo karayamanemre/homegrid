@@ -99,7 +99,7 @@ const Listing = () => {
             className='w-60 bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
           >
             <MdMail className='text-[#2a42cb]' size={24} />
-            Contact Owner
+            <p className='text-lg font-semibold'>Contact Owner</p>
             <MdOutlineArrowCircleRight className='text-[#2a42cb]' size={24} />
           </Link>
         )}

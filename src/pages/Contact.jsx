@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, useParams } from 'react-router-dom';
+import {
+  useSearchParams,
+  useParams,
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
+import { MdOutlineArrowBack } from 'react-icons/md';
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [owner, setOwner] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,12 +32,22 @@ const Contact = () => {
     getOwner();
   }, [params.ownerId]);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   const onChange = (e) => setMessage(e.target.value);
 
   return (
     <div className='m-4 mb-10'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
-        <p className='text-2xl font-semibold'>Contact {owner?.name}</p>
+        <p className='text-2xl font-semibold'>Contact - {owner?.name}</p>
+
+        <MdOutlineArrowBack
+          onClick={goBack}
+          className='text-[#2a93cb] cursor-pointer'
+          size={30}
+        />
       </header>
 
       {owner !== null && (
@@ -55,10 +72,10 @@ const Contact = () => {
               )}&body=${message}`}
             >
               <button
-                className='bg-[#2bb908] text-white rounded-lg p-2 mt-2'
+                className='bg-[#2a42cb] text-white rounded-lg p-2 mt-2'
                 type='button'
               >
-                Send Message
+                Send
               </button>
             </a>
           </form>

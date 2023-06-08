@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BiBed, BiBath, BiTrash } from 'react-icons/bi';
+import { BiBed, BiBath, BiTrash, BiEdit } from 'react-icons/bi';
 
-const ListingItem = ({ listing, id, onDelete }) => {
+const ListingItem = ({ listing, id, onEdit, onDelete }) => {
   return (
     <li className='flex justify-between items-center mb-4 relative'>
       <Link to={`/category/${listing.type}/${id}`} className='contents'>
@@ -47,6 +47,13 @@ const ListingItem = ({ listing, id, onDelete }) => {
         <BiTrash
           className='text-orange-900 cursor-pointer absolute top-[-5%] right-[-2%]'
           onClick={() => onDelete(listing.id, listing.name)}
+        />
+      )}
+
+      {onEdit && (
+        <BiEdit
+          className='text-orange-900 cursor-pointer absolute top-[-5%] right-[-10%]'
+          onClick={() => onEdit(listing.id)}
         />
       )}
     </li>

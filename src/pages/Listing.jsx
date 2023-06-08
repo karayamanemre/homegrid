@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 import { getDoc, doc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { db } from '../firebase.config';
 import Spinner from '../components/Spinner';
 import { MdShare, MdMail, MdOutlineArrowCircleRight } from 'react-icons/md';
 import { toast } from 'react-toastify';
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const Listing = () => {
   const [listing, setListing] = useState(null);
@@ -36,7 +40,37 @@ const Listing = () => {
 
   return (
     <main>
-      <div className='m-4 mb-20'>
+      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
+        {listing.imageUrls.map((url, index) => (
+          <SwiperSlide key={index}>
+            <div
+              style={{
+                backgroundImage: `url(${url})`,
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+              }}
+              className='relative w-full h-[300px] lg:h-[500px]'
+            ></div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          setShareLinkCopied(true);
+          toast.info('Link copied to clipboard');
+          setTimeout(() => {
+            setShareLinkCopied(false);
+          }, 2000);
+        }}
+        className='cursor-pointer fixed top-[3%] right-[5%] z-20 bg-white rounded-full p-1 items-center  text-[#2a93cb]'
+      >
+        <MdShare size={28} />
+      </div>
+
+      <div className='m-4 mb-24'>
         <header className='flex shadow justify-between items-center mb-2 bg-white p-2 rounded-xl'>
           <p className='font-semibold text-xl'>
             {listing.name} - $
@@ -48,20 +82,8 @@ const Listing = () => {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
           </p>
-          <div
-            onClick={() => {
-              navigator.clipboard.writeText(window.location.href);
-              setShareLinkCopied(true);
-              toast.info('Link copied to clipboard');
-              setTimeout(() => {
-                setShareLinkCopied(false);
-              }, 2000);
-            }}
-            className='cursor-pointer items-center  text-[#2a93cb]'
-          >
-            <MdShare size={28} />
-          </div>
         </header>
+
         <p className='font-semibold opacity-70 mb-1'>{listing.location}</p>
         <div className='flex'>
           <p className='p-1 px-2 bg-[#2a93cb] text-white rounded-lg inline font-semibold mr-1 shadow'>
@@ -99,6 +121,7 @@ const Listing = () => {
             style={{
               height: '100%',
               width: '100%',
+              zIndex: 1,
             }}
             center={[listing.geolocation.lat, listing.geolocation.lng]}
             zoom={13}

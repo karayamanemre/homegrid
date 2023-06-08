@@ -7,7 +7,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <footer className='fixed left-0 bottom-0 right-0 h-[85px] bg-white z-30 flex justify-center items-center'>
+    <footer className='fixed left-0 bottom-0 right-0 h-[85px] bg-white z-30 flex justify-center items-center shadow'>
       <nav className='w-full overflow-y-hidden'>
         <ul className='m-0 p-0 flex justify-evenly items-center'>
           <li

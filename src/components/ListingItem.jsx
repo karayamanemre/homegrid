@@ -45,7 +45,7 @@ const ListingItem = ({ listing, id, onDelete }) => {
       </Link>
       {onDelete && (
         <BiTrash
-          className='text-red cursor-pointer absolute top-[-3%] right-[-2%]'
+          className='text-orange-900 cursor-pointer absolute top-[-5%] right-[-2%]'
           onClick={() => onDelete(listing.id, listing.name)}
         />
       )}

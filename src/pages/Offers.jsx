@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   collection,
   getDocs,
@@ -19,30 +19,35 @@ const Offers = () => {
   const navigate = useNavigate();
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const params = useParams();
+  const [lastFetchedListing, setLastFetchedListing] = useState(null);
 
   useEffect(() => {
-    const getListings = async () => {
+    const fetchListings = async () => {
       try {
-        // Get a list of listings from Firestore
+        // Get reference
         const listingsRef = collection(db, 'listings');
 
-        // Create a query against the collection.
+        // Create a query
         const q = query(
           listingsRef,
           where('offer', '==', true),
           orderBy('timestamp', 'desc'),
-          limit(10),
+          limit(6),
         );
 
-        // Get the first 10 listings
-        const querySnapshot = await getDocs(q);
+        // Execute query
+        const querySnap = await getDocs(q);
+
+        const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+        setLastFetchedListing(lastVisible);
 
         const listings = [];
 
-        querySnapshot.forEach((doc) => {
-          return listings.push({ id: doc.id, data: doc.data() });
+        querySnap.forEach((doc) => {
+          return listings.push({
+            id: doc.id,
+            data: doc.data(),
+          });
         });
 
         setListings(listings);
@@ -51,8 +56,46 @@ const Offers = () => {
         toast.error('Could not fetch listings');
       }
     };
-    getListings();
-  });
+
+    fetchListings();
+  }, []);
+
+  // Pagination / Load More
+  const onFetchMoreListings = async () => {
+    try {
+      // Get reference
+      const listingsRef = collection(db, 'listings');
+
+      // Create a query
+      const q = query(
+        listingsRef,
+        where('offer', '==', true),
+        orderBy('timestamp', 'desc'),
+        startAfter(lastFetchedListing),
+        limit(6),
+      );
+
+      // Execute query
+      const querySnap = await getDocs(q);
+
+      const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+      setLastFetchedListing(lastVisible);
+
+      const listings = [];
+
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      setListings((prevState) => [...prevState, ...listings]);
+      setLoading(false);
+    } catch (error) {
+      toast.error('Could not fetch listings');
+    }
+  };
 
   return (
     <div className='m-4 mb-10'>
@@ -77,6 +120,15 @@ const Offers = () => {
               ))}
             </ul>
           </main>
+
+          {lastFetchedListing && (
+            <p
+              className='cursor-pointer w-28 my-0 mx-auto text-center p-2 bg-[#2a93cb] text-white font-semibold rounded-xl opacity-75 mt-4'
+              onClick={onFetchMoreListings}
+            >
+              Load More
+            </p>
+          )}
         </>
       ) : (
         <p className='text-center'>No current offers found</p>

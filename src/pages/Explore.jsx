@@ -7,20 +7,22 @@ import Slider from '../components/Slider';
 
 const Explore = () => {
   return (
-    <div className='m-4 mb-24'>
-      <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
+    <div className='m-4 mb-22'>
+      <header className='flex shadow justify-between items-center mb-2 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>Explore</p>
         <MdExplore className='text-[#2a93cb]' size={30} />
       </header>
       <main>
         <Slider />
-        <div className='flex shadow justify-between items-center p-2 bg-white rounded-xl mb-4'>
-          <p>Categories</p>
+        <div>
+          <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+            Categories
+          </p>
         </div>
-        <div className='flex justify-between'>
+        <div className='flex justify-between lg:w-3/4 lg:mx-auto'>
           <Link className='w-[48%]' to='/category/rent'>
             <img
-              className='min-h-[115px] h-[15vh] shadow w-full rounded-xl object-cover my-0 mx-auto'
+              className='min-h-[115px] h-[25vh] shadow w-full rounded-xl object-cover my-0 mx-auto lg:h-[160px]'
               src={rentCategoryImage}
               alt='Rentals'
             />
@@ -28,7 +30,7 @@ const Explore = () => {
           </Link>
           <Link className='w-[48%]' to='/category/sale'>
             <img
-              className='min-h-[115px] h-[15vh] shadow w-full rounded-xl object-cover my-0 mx-auto'
+              className='min-h-[115px] h-[25vh] shadow w-full rounded-xl object-cover my-0 mx-auto lg:h-[160px]'
               src={sellCategoryImage}
               alt='For Sale'
             />

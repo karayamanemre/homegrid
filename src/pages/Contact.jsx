@@ -8,7 +8,7 @@ import {
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
-import { MdOutlineArrowBack } from 'react-icons/md';
+import { MdOutlineArrowBack, MdArrowCircleRight } from 'react-icons/md';
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -52,16 +52,16 @@ const Contact = () => {
 
       {owner !== null && (
         <main>
-          <div>
-            <p className='text-lg font-semibold'>Message</p>
+          <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded-xl shadow lg:w-3/4 lg:mx-auto'>
+            <p className='text-lg font-semibold'>Send a Message to Owner</p>
           </div>
-          <form>
+          <form className='flex flex-col w-full lg:w-3/4 lg:mx-auto'>
             <textarea
               name='message'
               id='message'
               value={message}
               onChange={onChange}
-              className='resize-none border-2 border-gray-300 rounded-lg p-2 w-full'
+              className='resize-none border-2 border-gray-300 rounded-xl h-48 p-2 w-full'
               placeholder='Message...'
             />
             <a
@@ -72,10 +72,11 @@ const Contact = () => {
               )}&body=${message}`}
             >
               <button
-                className='bg-[#2a42cb] text-white rounded-lg p-2 mt-2'
+                className='w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mt-2 hover:bg-opacity-90 flex items-center justify-between'
                 type='button'
               >
-                Send
+                <p className='text-lg font-semibold'>Send</p>
+                <MdArrowCircleRight className='text-white inline' size={24} />
               </button>
             </a>
           </form>

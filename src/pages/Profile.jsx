@@ -115,11 +115,11 @@ const Profile = () => {
         </button>
       </header>
 
-      <main>
-        <div className='flex shadow justify-between items-center p-2 bg-white rounded-xl mb-4'>
-          <p className='font-semibold'>Personal Information</p>
+      <main className='lg:grid'>
+        <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+          <p className=''>Personal Information</p>
           <p
-            className='cursor-pointer bg-[#2a93cb] text-white rounded-xl py-1 px-3 flex items-center'
+            className='cursor-pointer text-[#2a93cb] rounded-xl flex items-center'
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
@@ -127,18 +127,18 @@ const Profile = () => {
           >
             {changeDetails ? (
               <>
-                <MdCheck /> <span>done</span>{' '}
+                <MdCheck size={28} />
               </>
             ) : (
               <>
-                <MdEdit /> <span>edit</span>{' '}
+                <MdEdit size={28} />
               </>
             )}
           </p>
         </div>
 
-        <div className='bg-white rounded-xl p-4 shadow'>
-          <form className='flex flex-col'>
+        <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+          <form className='flex flex-col w-full'>
             <input
               type='text'
               id='name'
@@ -151,6 +151,7 @@ const Profile = () => {
               value={name}
               onChange={onChange}
             />
+            <hr className='border-1' />
             <input
               type='text'
               id='email'
@@ -158,21 +159,24 @@ const Profile = () => {
               value={email}
               readOnly
             />
+            <hr className='border-1' />
           </form>
         </div>
         <Link
           to='/create-listing'
-          className='w-60 bg-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
+          className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl animate-pulse hover:animate-none hover:bg-opacity-90'
         >
-          <MdHomeFilled className='text-[#2a42cb]' size={24} />
+          <MdHomeFilled className='text-white' size={24} />
           <p className='text-lg font-semibold'>Sell / Rent House</p>
-          <MdArrowCircleRight className='text-[#2a42cb]' size={24} />
+          <MdArrowCircleRight className='text-white' size={24} />
         </Link>
 
         {!loading && listings?.length > 0 && (
-          <div className='flex flex-col shadow justify-between items-center p-2 bg-white rounded-xl mb-4'>
-            <p className='font-semibold m-2'>Your Listings</p>
-            <ul>
+          <div className='flex flex-col justify-between items-cente'>
+            <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+              Your Listings
+            </p>
+            <ul className='p-0 grid grid-cols-1 lg:grid-cols-3 gap-1 lg:gap-2'>
               {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}

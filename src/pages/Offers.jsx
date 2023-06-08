@@ -98,7 +98,7 @@ const Offers = () => {
   };
 
   return (
-    <div className='m-4 mb-10'>
+    <div className='m-4 mb-24'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>Offers</p>
         <button type='button' onClick={(e) => navigate('/')}>
@@ -110,7 +110,7 @@ const Offers = () => {
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className='p-0'>
+            <ul className='p-0 grid grid-cols-1 lg:grid-cols-3 gap-1 lg:gap-2'>
               {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}
@@ -123,7 +123,7 @@ const Offers = () => {
 
           {lastFetchedListing && (
             <p
-              className='cursor-pointer w-28 my-0 mx-auto text-center p-2 bg-[#2a93cb] text-white font-semibold rounded-xl opacity-75 mt-4'
+              className='cursor-pointer w-28 my-0 mx-auto text-center p-2 bg-[#2a93cb] text-white font-semibold rounded-xl opacity-75'
               onClick={onFetchMoreListings}
             >
               Load More

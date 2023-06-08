@@ -48,8 +48,10 @@ const Slider = () => {
 
   return (
     listings && (
-      <>
-        <p className='font-bold'>Recommended</p>
+      <div className='lg:w-3/4 lg:mx-auto'>
+        <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded shadow'>
+          Recommended Listings
+        </p>
         <Swiper
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -68,20 +70,23 @@ const Slider = () => {
                   background: `url(${listing.data.imageUrls[0]}) center no-repeat`,
                   backgroundSize: 'cover',
                 }}
-                className='cursor-pointer relative w-full h-[200px] lg:h-[500px]'
+                className='cursor-pointer relative w-full h-[250px] lg:h-[300px] lg:w-3/4 lg:mx-auto'
               >
-                <p className='text-white font-semibold absolute top-2 left-0 max-w-[90%] text-lg bg-gray-600 p-2 bg-opacity-70 rounded-xl'>
+                <p className='text-white font-semibold absolute top-2 left-0 max-w-[90%] text-base lg:text-lg bg-gray-600 p-2 bg-opacity-70 rounded-xl'>
                   {listing.data.name}
                 </p>
-                <p className='absolute top-14 left-0 font-semibold text-white bg-gray-600 p-2 bg-opacity-70 rounded-xl'>
-                  ${listing.data.discountedPrice ?? listing.data.regularPrice}{' '}
+                <p className='absolute top-14 left-0 font-semibold text-white text-sm lg:text-base bg-gray-600 p-2 bg-opacity-70 rounded-xl'>
+                  $
+                  {(listing.data.discountedPrice ?? listing.data.regularPrice)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
                   {listing.data.type === 'rent' && '/ month'}
                 </p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </>
+      </div>
     )
   );
 };

@@ -21,7 +21,6 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 const Listing = () => {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [shareLinkCopied, setShareLinkCopied] = useState(false);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -71,19 +70,17 @@ const Listing = () => {
       <div
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
-          setShareLinkCopied(true);
+
           toast.info('Link copied to clipboard');
-          setTimeout(() => {
-            setShareLinkCopied(false);
-          }, 2000);
+          setTimeout(() => {}, 2000);
         }}
-        className='cursor-pointer fixed top-[3%] right-[5%] z-20 bg-white rounded-full p-1 items-center  text-[#2a93cb]'
+        className='cursor-pointer shadow-2xl fixed top-[3%] right-[5%] z-20 bg-white rounded-full p-1 items-center  text-[#2a93cb]'
       >
         <MdShare size={28} />
       </div>
 
       <div className='m-4 mb-24'>
-        <header className='flex shadow justify-between items-center mb-2 bg-white p-2 rounded-xl'>
+        <header className='flex shadow-lg justify-between items-center mb-2 bg-white p-2 rounded-xl'>
           <p className='font-semibold text-xl'>
             {listing.name} - $
             {listing.offer

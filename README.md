@@ -1,6 +1,6 @@
 # HomeGrid
 
-Welcome to HomeGrid, a real estate listing application built using React and Firestore. You can view houses for rent or sale, create listings, and log in using your email or Google account.
+HomeGrid, is a real estate listing application built using React and Firestore. You can view houses for rent or sale, create listings, and log in using your email or Google account.
 
 Check it out live at [HomeGrid](https://homegrid-chi.vercel.app/).
 

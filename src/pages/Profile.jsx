@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getAuth, updateProfile } from 'firebase/auth';
-import { updateDoc, doc } from 'firebase/firestore';
+import {
+  updateDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  deleteDoc,
+} from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import ListingItem from '../components/ListingItem';
 import {
   MdLogout,
   MdEdit,
@@ -13,6 +23,8 @@ import {
 } from 'react-icons/md';
 
 const Profile = () => {
+  const [listings, setListings] = useState(null);
+  const [loading, setLoading] = useState(true);
   const auth = getAuth();
 
   const [changeDetails, setChangeDetails] = useState(false);
@@ -25,6 +37,33 @@ const Profile = () => {
   const { name, email } = formData;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUserListings = async () => {
+      const listingsRef = collection(db, 'listings');
+      const q = query(
+        listingsRef,
+        where('userRef', '==', auth.currentUser.uid),
+        orderBy('timestamp', 'desc'),
+      );
+
+      const querySnapshot = await getDocs(q);
+
+      let listings = [];
+
+      querySnapshot.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      setListings(listings);
+      setLoading(false);
+    };
+
+    getUserListings();
+  }, [auth.currentUser.uid]);
 
   const onLogout = () => {
     auth.signOut();
@@ -54,8 +93,21 @@ const Profile = () => {
     }));
   };
 
+  const onDelete = async (listingId) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      await deleteDoc(doc(db, 'listings', listingId));
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId,
+      );
+      setListings(updatedListings);
+      toast.success('Successfully deleted listing');
+    }
+  };
+
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
+
   return (
-    <div className='m-4 mb-10'>
+    <div className='m-4 mb-24'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>My Profile</p>
         <button type='button' onClick={onLogout}>
@@ -110,12 +162,29 @@ const Profile = () => {
         </div>
         <Link
           to='/create-listing'
-          className='w-60 bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
+          className='w-60 bg-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
         >
           <MdHomeFilled className='text-[#2a42cb]' size={24} />
           <p className='text-lg font-semibold'>Sell / Rent House</p>
           <MdArrowCircleRight className='text-[#2a42cb]' size={24} />
         </Link>
+
+        {!loading && listings?.length > 0 && (
+          <div className='flex flex-col shadow justify-between items-center p-2 bg-white rounded-xl mb-4'>
+            <p className='font-semibold m-2'>Your Listings</p>
+            <ul>
+              {listings.map((listing) => (
+                <ListingItem
+                  key={listing.id}
+                  listing={listing.data}
+                  id={listing.id}
+                  onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </main>
     </div>
   );

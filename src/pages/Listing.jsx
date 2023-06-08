@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { getDoc, doc } from 'firebase/firestore';
@@ -10,7 +16,7 @@ import { db } from '../firebase.config';
 import Spinner from '../components/Spinner';
 import { MdShare, MdMail, MdOutlineArrowCircleRight } from 'react-icons/md';
 import { toast } from 'react-toastify';
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 const Listing = () => {
   const [listing, setListing] = useState(null);
@@ -40,7 +46,13 @@ const Listing = () => {
 
   return (
     <main>
-      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
+      <Swiper
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 5000,
+        }}
+      >
         {listing.imageUrls.map((url, index) => (
           <SwiperSlide key={index}>
             <div

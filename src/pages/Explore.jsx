@@ -15,7 +15,7 @@ const Explore = () => {
       <main>
         <Slider />
         <div>
-          <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+          <p className='font-bold border-2 border-[#2a93cb] mb-2 lg:text-center bg-white py-1 px-2 rounded-xl shadow lg:w-3/4 lg:mx-auto'>
             Categories
           </p>
         </div>

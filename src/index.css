@@ -33,12 +33,13 @@ button {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .input-icon {
   position: absolute;
   left: 10px;
-  top: 16px;
+  top: 15px;
 }
 
 .input-self {

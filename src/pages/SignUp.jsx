@@ -70,11 +70,11 @@ const SignUp = () => {
   return (
     <>
       <div className='m-4'>
-        <div className='rounded-xl bg-white p-2 mt-4 shadow'>
+        <div className='rounded-xl bg-white p-2 mt-4 shadow-lg border-2 border-[#2a93cb] lg:w-2/4 lg:mx-auto'>
           <p className='text-center text-lg leading-6 font-bold'>
             Sign up to HomeGrid
           </p>
-          <form onSubmit={onSubmit} className='mt-6'>
+          <form onSubmit={onSubmit} className='mt-6 '>
             <div className='input-container'>
               <MdBadge className='input-icon' />
               <input
@@ -114,7 +114,7 @@ const SignUp = () => {
               />
             </div>
 
-            <button className='flex justify-between items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
+            <button className='flex justify-between lg:justify-evenly items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
               <MdArrowCircleRight className='text-2xl' />
               <span>Sign Up with Email</span>
             </button>

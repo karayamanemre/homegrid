@@ -4,7 +4,7 @@ import { BiBed, BiBath, BiTrash, BiEdit } from 'react-icons/bi';
 
 const ListingItem = ({ listing, id, onEdit, onDelete }) => {
   return (
-    <li className='flex gap-2 justify-between items-center mb-4 relative bg-white p-2 shadow rounded'>
+    <li className='flex gap-2 justify-between items-center mb-4 relative bg-white p-2 shadow-lg rounded-xl'>
       <Link to={`/category/${listing.type}/${id}`} className='contents'>
         <img
           src={listing.imageUrls[0]}

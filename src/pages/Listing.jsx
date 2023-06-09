@@ -91,7 +91,7 @@ const Listing = () => {
       </div>
 
       <div className='flex flex-col justify-between lg:w-3/4 lg:mx-auto mt-2 mx-4'>
-        <header className='flex shadow-lg justify-between items-center mb-2 bg-white p-2 rounded-xl'>
+        <header className='flex shadow-lg justify-between items-center mb-2 bg-white p-1 rounded-xl border-2 border-[#2a93cb]'>
           <p className='font-semibold text-base lg:text-xl'>
             <SiHomeadvisor className='inline mr-2 text-[#2a42cb]' />
             {listing.name} - $
@@ -125,7 +125,7 @@ const Listing = () => {
               )}
             </div>
 
-            <ul className='bg-white p-2 shadow rounded-lg mt-2 lg:h-[330px] lg:flex lg:flex-col lg:justify-around'>
+            <ul className='bg-white p-2 border-2 border-[#2a93cb] shadow-lg rounded-xl mt-2 lg:h-[330px] lg:flex lg:flex-col lg:justify-around'>
               <li className='font-semibold opacity-70 mb-1 mt-2 flex items-center lg:text-xl'>
                 <BiBed className='inline mr-2 text-[#2a42cb]' />
                 {listing.bedrooms} Bedroom{listing.bedrooms > 1 && 's'}
@@ -163,7 +163,7 @@ const Listing = () => {
             </ul>
           </div>
 
-          <div className='w-full lg:w-[48%] lg:h-[400px] h-44 overflow-x-hidden mt-2 lg:mt-0 rounded-lg shadow'>
+          <div className='w-full border-2 border-white lg:w-[48%] lg:h-[400px] h-44 overflow-x-hidden mt-2 lg:mt-0 rounded-xl shadow-lg'>
             <MapContainer
               style={{
                 height: '100%',

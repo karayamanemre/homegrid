@@ -52,8 +52,8 @@ const SignIn = () => {
 
   return (
     <>
-      <div className='m-4'>
-        <div className='rounded-xl bg-white p-2 mt-4 shadow'>
+      <div className='m-4 '>
+        <div className='rounded-xl bg-white p-2 mt-4 shadow-lg border-2 border-[#2a93cb] lg:w-2/4 lg:mx-auto xl:w-1/4'>
           <p className='text-center text-lg leading-6 font-bold'>
             Welcome Again!
           </p>
@@ -93,7 +93,7 @@ const SignIn = () => {
               Forgot Password?
             </Link>
 
-            <button className='flex justify-between items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
+            <button className='flex justify-between lg:justify-evenly items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
               <MdArrowCircleRight className='text-2xl' />
               <span>Sign In with Email</span>
             </button>

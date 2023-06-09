@@ -42,7 +42,7 @@ const OAuth = () => {
         with
       </p>
       <button
-        className='flex justify-center items-center p-3 mt-2 bg-white rounded-[50%] shadow-md hover:shadow-lg'
+        className='flex justify-center items-center p-3 mt-2 bg-white rounded-[50%] shadow-lg border-2 border-[#2a93cb] hover:shadow-lg'
         onClick={onGoogleClick}
       >
         <FcGoogle

@@ -70,7 +70,7 @@ const SignUp = () => {
   return (
     <>
       <div className='m-4'>
-        <div className='rounded bg-white p-2 mt-4'>
+        <div className='rounded-xl bg-white p-2 mt-4 shadow'>
           <p className='text-center text-lg leading-6 font-bold'>
             Sign up to HomeGrid
           </p>
@@ -83,7 +83,7 @@ const SignUp = () => {
                 id='name'
                 value={name}
                 onChange={onChange}
-                className='input-self shadow mb-8 border-b-2 border-[#e47d07] bg-white h-12 w-full outline-none px-3 xl:px-5'
+                className='input-self mb-8 border-b-2 border-[#2a93cb] bg-white h-12 w-full outline-none px-3 xl:px-5'
               />
             </div>
 
@@ -95,7 +95,7 @@ const SignUp = () => {
                 id='email'
                 value={email}
                 onChange={onChange}
-                className='input-self shadow mb-8 border-b-2 border-[#e47d07] bg-white h-12 w-full outline-none px-3 xl:px-5'
+                className='input-self  mb-8 border-b-2 border-[#2a93cb] bg-white h-12 w-full outline-none px-3 xl:px-5'
               />
             </div>
             <div className='input-container'>
@@ -106,7 +106,7 @@ const SignUp = () => {
                 id='password'
                 value={password}
                 onChange={onChange}
-                className='input-self shadow border-b-2 border-[#e47d07] bg-white h-12 w-full outline-none px-3 xl:px-5'
+                className='input-self border-b-2 border-[#2a93cb] bg-white h-12 w-full outline-none px-3 xl:px-5'
               />
               <MdVisibility
                 className='show-icon cursor-pointer'
@@ -114,18 +114,10 @@ const SignUp = () => {
               />
             </div>
 
-            <div className='mt-6 flex justify-center items-center rounded bg-white pl-2 inherit xl:justify-start'>
-              <button className='flex justify-between items-center w-[50%] p-2 border-2 rounded-full border-[#e47d07] xl:ml-3'>
-                <MdArrowCircleRight
-                  style={{
-                    width: '30px',
-                    height: '30px',
-                    color: '#e47d07',
-                  }}
-                />
-                <span>Sign Up</span>
-              </button>
-            </div>
+            <button className='flex justify-between items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
+              <MdArrowCircleRight className='text-2xl' />
+              <span>Sign Up with Email</span>
+            </button>
           </form>
 
           <OAuth />
@@ -133,7 +125,7 @@ const SignUp = () => {
 
         <Link to='/sign-in' className='flex flex-col items-center mt-8'>
           <p className='text-md'>Already have an account?</p>
-          <p className='text-md text-[#e47d07]'>Sign In</p>
+          <p className='text-md font-bold text-[#2a93cb]'>Sign In</p>
         </Link>
       </div>
     </>

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  useSearchParams,
-  useParams,
-  Link,
-  useNavigate,
-} from 'react-router-dom';
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
@@ -14,6 +9,7 @@ const Contact = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [owner, setOwner] = useState(null);
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   const params = useParams();
 
@@ -41,7 +37,9 @@ const Contact = () => {
   return (
     <div className='m-4 mb-10'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
-        <p className='text-2xl font-semibold'>Contact - {owner?.name}</p>
+        <p className='text-lg lg:text-2xl font-semibold'>
+          Contact - {owner?.name}
+        </p>
 
         <MdOutlineArrowBack
           onClick={goBack}
@@ -52,9 +50,6 @@ const Contact = () => {
 
       {owner !== null && (
         <main>
-          <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded-xl shadow lg:w-3/4 lg:mx-auto'>
-            <p className='text-lg font-semibold'>Send a Message to Owner</p>
-          </div>
           <form className='flex flex-col w-full lg:w-3/4 lg:mx-auto'>
             <textarea
               name='message'

@@ -155,7 +155,7 @@ const Profile = () => {
             <input
               type='text'
               id='email'
-              className='my-2 font-medium rounded px-1 outline-none'
+              className='my-2 font-medium rounded px-1 outline-none text-sm lg:text-base'
               value={email}
               readOnly
             />
@@ -164,7 +164,7 @@ const Profile = () => {
         </div>
         <Link
           to='/create-listing'
-          className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl animate-pulse hover:animate-none hover:bg-opacity-90'
+          className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl hover:bg-opacity-90'
         >
           <MdHomeFilled className='text-white' size={24} />
           <p className='text-lg font-semibold'>Sell / Rent House</p>

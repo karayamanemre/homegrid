@@ -53,64 +53,58 @@ const SignIn = () => {
   return (
     <>
       <div className='m-4'>
-        <header>
-          <p className='font-bold text-2xl mb-2'>Welcome Again!</p>
-        </header>
+        <div className='rounded-xl bg-white p-2 mt-4 shadow'>
+          <p className='text-center text-lg leading-6 font-bold'>
+            Welcome Again!
+          </p>
 
-        <form onSubmit={onSubmit}>
-          <div className='input-container'>
-            <MdPerson className='input-icon' />
-            <input
-              type='email'
-              placeholder='Email'
-              id='email'
-              value={email}
-              onChange={onChange}
-              className='input-self shadow mb-8 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
-            />
-          </div>
-          <div className='input-container'>
-            <MdLock className='input-icon' />
-            <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder='Password'
-              id='password'
-              value={password}
-              onChange={onChange}
-              className='input-self shadow mb-4 border-0 bg-white rounded-md h-12 w-full outline-none px-3 xl:px-5'
-            />
-            <MdVisibility
-              className='show-icon cursor-pointer'
-              onClick={() => setShowPassword((prevState) => !prevState)}
-            />
-          </div>
-
-          <Link
-            to='/forgot-password'
-            className='flex flex-col items-end pr-1 text-[#e47d07]'
-          >
-            Forgot Password?
-          </Link>
-
-          <div className='mt-6 flex justify-between items-center rounded bg-white pl-2 inherit xl:justify-start'>
-            <p className='text-xl'>Sign In</p>
-            <button className='flex justify-center items-center w-12 h-12 bg-slate-100 xl:ml-3'>
-              <MdArrowCircleRight
-                style={{
-                  width: '30px',
-                  height: '30px',
-                  color: '#e47d07',
-                }}
+          <form onSubmit={onSubmit} className='mt-6'>
+            <div className='input-container'>
+              <MdPerson className='input-icon' />
+              <input
+                type='email'
+                placeholder='Email'
+                id='email'
+                value={email}
+                onChange={onChange}
+                className='input-self mb-8 border-b-2 border-[#2a93cb] bg-white h-12 w-full outline-none px-3 xl:px-5'
               />
-            </button>
-          </div>
-        </form>
+            </div>
+            <div className='input-container'>
+              <MdLock className='input-icon' />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder='Password'
+                id='password'
+                value={password}
+                onChange={onChange}
+                className='input-self mb-4 border-b-2 border-[#2a93cb] bg-white h-12 w-full outline-none px-3 xl:px-5'
+              />
+              <MdVisibility
+                className='show-icon cursor-pointer'
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              />
+            </div>
 
-        <OAuth />
+            <Link
+              to='/forgot-password'
+              className='flex flex-col font-bold items-end pr-1 text-[#2a93cb]'
+            >
+              Forgot Password?
+            </Link>
+
+            <button className='flex justify-between items-center shadow w-[60%] mt-4 p-3 text-white rounded-full bg-[#2a93cb] mx-auto'>
+              <MdArrowCircleRight className='text-2xl' />
+              <span>Sign In with Email</span>
+            </button>
+          </form>
+
+          <OAuth />
+        </div>
 
         <Link to='/sign-up' className='flex flex-col items-center mt-12'>
           <p className='text-md'>Don't have an account?</p>
-          <p className='text-md text-[#e47d07]'>Sign Up</p>
+          <p className='text-md font-bold text-[#2a93cb]'>Sign Up</p>
         </Link>
       </div>
     </>

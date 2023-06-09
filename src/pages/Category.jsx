@@ -34,7 +34,7 @@ const Category = () => {
           listingsRef,
           where('type', '==', params.categoryName),
           orderBy('timestamp', 'desc'),
-          limit(6),
+          limit(5),
         );
 
         // Get the first 6 listings
@@ -71,7 +71,7 @@ const Category = () => {
         where('type', '==', params.categoryName),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(6),
+        limit(5),
       );
 
       // Get the first 6 listings
@@ -95,7 +95,7 @@ const Category = () => {
   };
 
   return (
-    <div className='m-4 mb-10'>
+    <div className='m-4 mb-32'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>
           {params.categoryName === 'rent'

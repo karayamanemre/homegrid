@@ -53,7 +53,7 @@ const Listing = () => {
   }
 
   return (
-    <main>
+    <main className='mb-24'>
       <div className='lg:w-3/4 lg:mx-auto'>
         <Swiper
           slidesPerView={1}
@@ -71,7 +71,7 @@ const Listing = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                 }}
-                className='relative w-full h-[300px] lg:h-[300px]'
+                className='relative w-full h-[270px] lg:h-[300px]'
               ></div>
             </SwiperSlide>
           ))}
@@ -92,7 +92,7 @@ const Listing = () => {
 
       <div className='flex flex-col justify-between lg:w-3/4 lg:mx-auto mt-2 mx-4'>
         <header className='flex shadow-lg justify-between items-center mb-2 bg-white p-2 rounded-xl'>
-          <p className='font-semibold text-xl'>
+          <p className='font-semibold text-base lg:text-xl'>
             <SiHomeadvisor className='inline mr-2 text-[#2a42cb]' />
             {listing.name} - $
             {listing.offer
@@ -106,7 +106,7 @@ const Listing = () => {
         </header>
         <div className='lg:flex lg:items-end lg:justify-between'>
           <div className='lg:w-[48%]'>
-            <p className='font-semibold opacity-70 mb-1 flex items-center lg:text-lg'>
+            <p className='font-semibold opacity-70 mb-1 flex items-center text-sm lg:text-lg'>
               <MdLocationPin className='inline mr-1 text-[#2a42cb]' />
               {listing.location}
             </p>
@@ -188,7 +188,7 @@ const Listing = () => {
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
             to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-            className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl animate-pulse hover:animate-none hover:bg-opacity-90'
+            className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl hover:bg-opacity-90'
           >
             <MdMail className='text-white' size={24} />
             <p className='text-lg font-semibold'>Contact Owner</p>

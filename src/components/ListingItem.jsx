@@ -15,7 +15,7 @@ const ListingItem = ({ listing, id, onEdit, onDelete }) => {
           <p className='font-medium text-xs opacity-70 mb-0 lg:text-base'>
             {listing.location}
           </p>
-          <p className='font-semibold'>{listing.name}</p>
+          <p className='font-semibold pr-5'>{listing.name}</p>
           <p className='mb-0 font-semibold text-[#2a42cb] flex items-center'>
             $
             {listing.offer

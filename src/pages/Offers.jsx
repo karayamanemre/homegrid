@@ -32,7 +32,7 @@ const Offers = () => {
           listingsRef,
           where('offer', '==', true),
           orderBy('timestamp', 'desc'),
-          limit(6),
+          limit(5),
         );
 
         // Execute query
@@ -72,7 +72,7 @@ const Offers = () => {
         where('offer', '==', true),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(6),
+        limit(5),
       );
 
       // Execute query

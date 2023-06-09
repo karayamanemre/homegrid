@@ -12,8 +12,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../components/Spinner';
+import {
+  MdOutlineArrowBack,
+  MdCreate,
+  MdOutlineArrowCircleRight,
+} from 'react-icons/md';
 
-function EditListing() {
+const EditListing = () => {
   // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -245,19 +250,25 @@ function EditListing() {
   return (
     <div className='m-4 mb-32 min-h-full'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
-        <p className='text-2xl font-semibold'>Edit Listing</p>
+        <p className='text-2xl font-semibold'>Create a Listing</p>
+        <button type='button' onClick={(e) => navigate(-1)}>
+          <MdOutlineArrowBack className='text-[#2a93cb]' size={30} />
+        </button>
       </header>
 
       <main>
-        <form onSubmit={onSubmit}>
-          <label className='mt-2 font-semibold text-xs'>Sell / Rent</label>
+        <form
+          onSubmit={onSubmit}
+          className='flex flex-col gap-1 bg-white rounded-xl shadow-xl p-4 lg:w-3/4 lg:mx-auto'
+        >
+          <label className='font-semibold'>Sell / Rent</label>
           <div className='flex'>
             <button
               type='button'
               className={
                 type === 'sale'
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               id='type'
               value='sale'
@@ -269,8 +280,8 @@ function EditListing() {
               type='button'
               className={
                 type === 'rent'
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               id='type'
               value='rent'
@@ -279,10 +290,9 @@ function EditListing() {
               Rent
             </button>
           </div>
-
-          <label className='font-semibold text-xs'>Name</label>
+          <label className='font-semibold'>Name</label>
           <input
-            className='w-60 border-none text-sm outline-none p-2 bg-white font-semibold rounded flex justify-center items-center'
+            className='w-60 border-2 border-[#2a93cb] text-sm outline-none p-2 bg-white font-semibold rounded-xl flex justify-center items-center'
             type='text'
             id='name'
             value={name}
@@ -294,55 +304,53 @@ function EditListing() {
 
           <div className='flex gap-2'>
             <div>
-              <label className='font-semibold text-xs'>Bedrooms</label>
+              <label className='font-semibold'>Bedrooms</label>
               <input
-                className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-12'
+                className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-12'
                 type='number'
                 id='bedrooms'
                 value={bedrooms}
                 onChange={onMutate}
-                min='1'
-                max='50'
+                maxLength='1'
+                minLength='50'
                 required
               />
             </div>
             <div>
-              <label className='font-semibold text-xs'>Bathrooms</label>
+              <label className='font-semibold'>Bathrooms</label>
               <input
-                className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-12'
+                className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-12'
                 type='number'
                 id='bathrooms'
                 value={bathrooms}
                 onChange={onMutate}
-                min='1'
-                max='50'
+                maxLength='1'
+                minLength='50'
                 required
               />
             </div>
           </div>
 
-          <label className='font-semibold text-xs'>Parking spot</label>
+          <label className='font-semibold'>Parking spot</label>
           <div className='flex gap-2'>
             <button
               className={
                 parking
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='parking'
               value={true}
               onClick={onMutate}
-              min='1'
-              max='50'
             >
               Yes
             </button>
             <button
               className={
                 !parking && parking !== null
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='parking'
@@ -353,13 +361,13 @@ function EditListing() {
             </button>
           </div>
 
-          <label className='font-semibold text-xs'>Furnished</label>
+          <label className='font-semibold'>Furnished</label>
           <div className='flex gap-2'>
             <button
               className={
                 furnished
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='furnished'
@@ -371,8 +379,8 @@ function EditListing() {
             <button
               className={
                 !furnished && furnished !== null
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='furnished'
@@ -383,9 +391,9 @@ function EditListing() {
             </button>
           </div>
 
-          <label className='font-semibold text-xs'>Address</label>
+          <label className='font-semibold'>Address</label>
           <textarea
-            className='resize-none h-10 w-60 p-2 bg-white font-semibold rounded text-base mr-2 mb-0 flex justify-center items-center'
+            className='border-2 border-[#2a93cb] resize-none h-12 w-60 p-2 bg-white font-semibold rounded-xl text-base mr-2 mb-0 flex justify-center items-center'
             type='text'
             id='address'
             value={address}
@@ -396,9 +404,9 @@ function EditListing() {
           {!geolocationEnabled && (
             <div className='flex'>
               <div>
-                <label className='font-semibold text-xs'>Latitude</label>
+                <label className='font-semibold'>Latitude</label>
                 <input
-                  className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-20'
+                  className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-20'
                   type='number'
                   id='latitude'
                   value={latitude}
@@ -407,9 +415,9 @@ function EditListing() {
                 />
               </div>
               <div>
-                <label className='font-semibold text-xs'>Longitude</label>
+                <label className='font-semibold'>Longitude</label>
                 <input
-                  className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-20'
+                  className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-20'
                   type='number'
                   id='longitude'
                   value={longitude}
@@ -420,13 +428,13 @@ function EditListing() {
             </div>
           )}
 
-          <label className='font-semibold text-xs'>Offer</label>
+          <label className='font-semibold'>Offer</label>
           <div className='flex gap-2'>
             <button
               className={
                 offer
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='offer'
@@ -438,8 +446,8 @@ function EditListing() {
             <button
               className={
                 !offer && offer !== null
-                  ? 'bg-[#2a93cb] text-white font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
-                  : 'bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  ? 'bg-[#2a93cb] text-white font-semibold border-2 border-[#2a93cb] text-sm rounded-xl px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+                  : 'bg-white text-black font-semibold border-2 border-[#2a93cb] text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
               }
               type='button'
               id='offer'
@@ -450,10 +458,10 @@ function EditListing() {
             </button>
           </div>
 
-          <label className='font-semibold text-xs'>Regular Price</label>
+          <label className='font-semibold'>Regular Price</label>
           <div className='flex gap-2 items-center'>
             <input
-              className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-20'
+              className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-20'
               type='number'
               id='regularPrice'
               value={regularPrice}
@@ -471,9 +479,9 @@ function EditListing() {
 
           {offer && (
             <>
-              <label className='font-semibold text-xs'>Discounted Price</label>
+              <label className='font-semibold'>Discounted Price</label>
               <input
-                className='border-none outline-none p-2 bg-white text-sm font-semibold rounded mt-1 mr-4 text-center flex justify-center items-center w-20'
+                className='border-2 border-[#2a93cb] outline-none p-2 bg-white text-sm font-semibold rounded-xl mt-1 mr-4 text-center flex justify-center items-center w-20'
                 type='number'
                 id='discountedPrice'
                 value={discountedPrice}
@@ -485,12 +493,12 @@ function EditListing() {
             </>
           )}
 
-          <label className='font-semibold text-xs'>Images</label>
+          <label className='font-semibold'>Images</label>
           <p className='font-semibold text-xs opacity-70'>
             The first image will be the cover (max 6).
           </p>
           <input
-            className='formInputFile bg-white text-black font-semibold text-sm rounded-xl shadow px-2 py-1 mt-2 mr-2 flex justify-center items-center'
+            className='formInputFile bg-white text-black font-semibold text-sm px-2 py-1 mt-2 mr-2 flex justify-center items-center'
             type='file'
             id='images'
             onChange={onMutate}
@@ -501,14 +509,16 @@ function EditListing() {
           />
           <button
             type='submit'
-            className='w-60 bg-white rounded-xl py-2 px-4 flex justify-between items-center mt-4 shadow hover:bg-gray-300'
+            className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl hover:bg-opacity-90'
           >
-            Edit Listing
+            <MdCreate className='text-white' size={24} />
+            <p className='text-lg font-semibold'>Edit Listing</p>
+            <MdOutlineArrowCircleRight className='text-white' size={24} />
           </button>
         </form>
       </main>
     </div>
   );
-}
+};
 
 export default EditListing;

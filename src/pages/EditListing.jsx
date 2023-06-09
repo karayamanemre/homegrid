@@ -248,7 +248,7 @@ const EditListing = () => {
   }
 
   return (
-    <div className='m-4 mb-32 min-h-full'>
+    <div className='m-4 mb-32 min-h-full md:w-4/5 md:mx-auto lg:w-3/4 lg:mx-auto 2xl:w-3/5'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>Create a Listing</p>
         <button type='button' onClick={(e) => navigate(-1)}>
@@ -259,7 +259,7 @@ const EditListing = () => {
       <main>
         <form
           onSubmit={onSubmit}
-          className='flex flex-col gap-1 bg-white rounded-xl shadow-xl p-4 lg:w-3/4 lg:mx-auto'
+          className='flex flex-col gap-1 bg-white rounded-xl shadow-xl p-4'
         >
           <label className='font-semibold'>Sell / Rent</label>
           <div className='flex'>

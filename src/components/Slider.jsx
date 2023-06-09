@@ -48,7 +48,7 @@ const Slider = () => {
 
   return (
     listings && (
-      <div className='lg:w-3/4 lg:mx-auto'>
+      <div>
         <p className='font-semibold mb-2 lg:text-center bg-[#2a93cb] border-2 border-white text-white py-1 px-2 rounded-xl shadow-xl'>
           Recommended Listings
         </p>

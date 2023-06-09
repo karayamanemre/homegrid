@@ -52,7 +52,7 @@ const SignIn = () => {
 
   return (
     <>
-      <div className='m-4 '>
+      <div className='m-4'>
         <div className='rounded-xl bg-white p-2 mt-4 shadow-lg border-2 border-[#2a93cb] lg:w-2/4 lg:mx-auto xl:w-1/4'>
           <p className='text-center text-lg leading-6 font-bold'>
             Welcome Again!

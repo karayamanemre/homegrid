@@ -95,7 +95,7 @@ const Category = () => {
   };
 
   return (
-    <div className='m-4 mb-32'>
+    <div className='m-4 mb-32 md:w-4/5 md:mx-auto lg:w-3/4 lg:mx-auto 2xl:w-3/5'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>
           {params.categoryName === 'rent'

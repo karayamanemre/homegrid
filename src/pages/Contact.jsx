@@ -35,7 +35,7 @@ const Contact = () => {
   const onChange = (e) => setMessage(e.target.value);
 
   return (
-    <div className='m-4 mb-10'>
+    <div className='m-4 mb-10 md:w-4/5 md:mx-auto lg:w-3/4 lg:mx-auto 2xl:w-3/5'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-lg lg:text-2xl font-semibold'>
           Contact - {owner?.name}
@@ -50,7 +50,7 @@ const Contact = () => {
 
       {owner !== null && (
         <main>
-          <form className='flex flex-col w-full lg:w-3/4 lg:mx-auto'>
+          <form className='flex flex-col w-full'>
             <textarea
               name='message'
               id='message'

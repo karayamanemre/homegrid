@@ -107,7 +107,7 @@ const Profile = () => {
   const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
 
   return (
-    <div className='m-4 mb-24'>
+    <div className='m-4 mb-24 md:w-4/5 md:mx-auto lg:w-3/4 lg:mx-auto 2xl:w-3/5'>
       <header className='flex shadow justify-between items-center mb-4 bg-white p-2 rounded-xl'>
         <p className='text-2xl font-semibold'>My Profile</p>
         <button type='button' onClick={onLogout}>
@@ -116,8 +116,8 @@ const Profile = () => {
       </header>
 
       <main className='lg:grid'>
-        <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
-          <p className=''>Personal Information</p>
+        <div className='flex font-bold justify-between items-center mb-2 text-lg lg:text-center bg-white p-2 rounded-xl shadow'>
+          <p>Personal Information</p>
           <p
             className='cursor-pointer text-[#2a93cb] rounded-xl flex items-center'
             onClick={() => {
@@ -137,7 +137,7 @@ const Profile = () => {
           </p>
         </div>
 
-        <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+        <div className='flex font-bold justify-between lg:justify-around items-center mb-2 text-lg lg:text-center bg-white p-2 rounded-xl shadow '>
           <form className='flex flex-col w-full'>
             <input
               type='text'
@@ -164,7 +164,7 @@ const Profile = () => {
         </div>
         <Link
           to='/create-listing'
-          className='w-60 lg:w-2/4 lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl hover:bg-opacity-90'
+          className='w-60  lg:mx-auto bg-[#2a42cb] text-white rounded-xl py-2 px-4 mb-4 flex justify-between items-center mt-4 shadow-xl hover:bg-opacity-90'
         >
           <MdHomeFilled className='text-white' size={24} />
           <p className='text-lg font-semibold'>Sell / Rent House</p>
@@ -173,7 +173,7 @@ const Profile = () => {
 
         {!loading && listings?.length > 0 && (
           <div className='flex flex-col justify-between items-cente'>
-            <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded shadow lg:w-3/4 lg:mx-auto'>
+            <p className='font-bold mb-2 text-lg lg:text-center bg-white p-2 rounded-xl shadow'>
               Your Listings
             </p>
             <ul className='p-0 grid grid-cols-1 lg:grid-cols-3 gap-1 lg:gap-2'>

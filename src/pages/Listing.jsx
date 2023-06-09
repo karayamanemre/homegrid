@@ -53,8 +53,8 @@ const Listing = () => {
   }
 
   return (
-    <main className='mb-24'>
-      <div className='lg:w-3/4 lg:mx-auto'>
+    <main className='mb-24 md:w-4/5 md:mx-auto lg:w-3/4 lg:mx-auto 2xl:w-3/5'>
+      <div className=''>
         <Swiper
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -71,7 +71,7 @@ const Listing = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                 }}
-                className='relative w-full h-[270px] lg:h-[300px]'
+                className='relative md:rounded-xl w-full h-[270px] lg:h-[310px]'
               ></div>
             </SwiperSlide>
           ))}
@@ -85,12 +85,12 @@ const Listing = () => {
           toast.info('Link copied to clipboard');
           setTimeout(() => {}, 2000);
         }}
-        className='border-4 border-[#2a93cb] cursor-pointer fixed top-[3%] right-[5%] lg:right-[15%] z-20 bg-white rounded-full p-1 flex justify-center items-center text-[#2a93cb]'
+        className='border-4 border-[#2a93cb] cursor-pointer fixed top-[3%] right-[5%] md:right-[15%] 2xl:right-[25%] z-20 bg-white rounded-full p-1 flex justify-center items-center text-[#2a93cb]'
       >
         <MdShare size={28} />
       </div>
 
-      <div className='flex flex-col justify-between lg:w-3/4 lg:mx-auto mt-2 mx-4'>
+      <div className='flex flex-col justify-between mt-2 mx-4'>
         <header className='flex shadow-lg justify-between items-center mb-2 bg-white p-1 rounded-xl border-2 border-[#2a93cb]'>
           <p className='font-semibold text-base lg:text-xl'>
             <SiHomeadvisor className='inline mr-2 text-[#2a42cb]' />

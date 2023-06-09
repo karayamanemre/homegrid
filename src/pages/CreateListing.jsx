@@ -19,6 +19,7 @@ import {
 } from 'react-icons/md';
 
 const CreateListing = () => {
+  // eslint-disable-next-line no-unused-vars
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({

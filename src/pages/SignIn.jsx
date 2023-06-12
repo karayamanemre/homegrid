@@ -7,6 +7,7 @@ import {
   MdVisibility,
   MdPerson,
   MdLock,
+  MdLogin,
 } from 'react-icons/md';
 import OAuth from '../components/OAuth';
 
@@ -54,8 +55,9 @@ const SignIn = () => {
     <>
       <div className='m-4'>
         <div className='rounded-xl bg-white p-2 mt-4 shadow-lg border-2 border-[#2a93cb] lg:w-2/4 lg:mx-auto xl:w-1/4'>
-          <p className='text-center text-lg leading-6 font-bold'>
-            Welcome Again!
+          <p className='text-center text-xl leading-6 font-bold'>
+            <MdLogin className='inline-block text-2xl mr-2' />
+            Sign In
           </p>
 
           <form onSubmit={onSubmit} className='mt-6'>

@@ -16,7 +16,6 @@ import {
   MdBadge,
   MdLogin,
 } from 'react-icons/md';
-import { FaSignUp } from 'react-icons/fa';
 import OAuth from '../components/OAuth';
 
 const SignUp = () => {
